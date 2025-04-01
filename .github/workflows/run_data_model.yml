@@ -2,7 +2,7 @@ name: Run DBT and Push Updated Database
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs at midnight every day
+    - cron: '0 18 * * *' # Runs at 18 every day
   workflow_dispatch:
   push:
     branches:
