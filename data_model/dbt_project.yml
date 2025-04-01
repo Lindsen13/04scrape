@@ -1,0 +1,24 @@
+name: 'data_model'
+version: '1.0.0'
+
+on-run-start:
+  - "INSTALL httpfs;"
+  - "LOAD httpfs;"
+
+profile: 'data_model'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+
+models:
+  data_model:
+      +materialized: table

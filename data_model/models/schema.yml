@@ -1,0 +1,38 @@
+
+version: 2
+
+models:
+  - name: total_levels
+    description: "Total levels from Lost City"
+    columns:
+      - name: username
+        description: "The username of the player"
+        data_tests:
+          - unique
+          - not_null
+      - name: level
+        description: "The level of the player"
+        data_tests:
+          - not_null
+      - name: value
+        description: "The xp of the player"
+        data_tests:
+          - not_null
+      - name: date
+        description: "Date updated"
+        data_tests:
+          - not_null
+      - name: rank
+        description: "The rank of the player"
+        data_tests:
+          - not_null
+  - name: total_levels_overview
+    description: "Overview of total levels - An entire history"
+    columns:
+      - name: username
+      - name: level
+      - name: value
+      - name: date
+      - name: rank
+      - name: dbt_run_id
+      - name: inserted_at

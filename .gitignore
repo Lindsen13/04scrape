@@ -1,0 +1,4 @@
+.DS_Store
+venv/
+data_model/target/
+data_model/dev.duckdb
