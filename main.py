@@ -2,7 +2,7 @@ import streamlit as st
 
 import duckdb
 
-conn = duckdb.connect("data_model/dev.duckdb", read_only=True)
+conn = duckdb.connect("data_model/prod.duckdb", read_only=True)
 
 query = """
     SELECT 
