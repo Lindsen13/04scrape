@@ -4,9 +4,13 @@ on:
   schedule:
     - cron: '0 0 * * *' # Runs at midnight every day
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   run-dbt:
+    if: github.actor != 'github-actions[bot]' # Exclude runs triggered by the bot
     runs-on: ubuntu-latest
 
     steps:
