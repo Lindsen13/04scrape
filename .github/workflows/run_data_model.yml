@@ -2,7 +2,7 @@ name: Run DBT and Push Updated Database
 
 on:
   schedule:
-    - cron: '0 18 * * *' # Runs at 18 every day
+    - cron: '0 19 * * *'
   workflow_dispatch:
   push:
     branches:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   run-dbt:
-    if: github.actor != 'github-actions[bot]' # Exclude runs triggered by the bot
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
 
     steps:
@@ -37,7 +37,9 @@ jobs:
       - name: Run dbt
         working-directory: ./data_model
         run: dbt run --target prod
-
+        retry:
+          max_attempts: 3
+          
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
