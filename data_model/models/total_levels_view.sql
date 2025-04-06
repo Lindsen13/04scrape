@@ -4,16 +4,18 @@ SELECT
     rank,
     date,
     username,
-    max(level) AS level,
-    floor(max(xp)) as xp
+    level,
+    xp
 FROM (
     SELECT
         rank,
         DATE_TRUNC('day', inserted_at) AS date,
+        inserted_at,
         username,
         level,
-        value/10 as xp
+        value/10 as xp,
+        row_number() OVER(PARTITION BY DATE_TRUNC('day', inserted_at), rank ORDER BY inserted_at desc) as row_nr
     FROM {{ ref('total_levels_overview') }}
-    WHERE rank <= 100
-) t
-GROUP BY rank, date, username
+    where rank <= 100
+) a
+WHERE row_nr = 1

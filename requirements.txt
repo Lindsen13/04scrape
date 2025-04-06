@@ -2,3 +2,4 @@ duckdb==1.2.1
 dbt-core==1.9.3
 dbt-duckdb==1.9.2
 streamlit==1.44.0
+millify==0.1.1

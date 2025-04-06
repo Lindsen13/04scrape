@@ -5,3 +5,20 @@ It's not a secret - as a kid I was completely occupied about Runescape! Recently
 This little project tries to use DuckDB, DBT and Streamlit to get some insights into the development of the top players on this game. Who will be the first player to max at a total level of 1782?
 
 [Check](https://04scrape-jsbndpknzqumxj69s56rapp.streamlit.app/) it out yourself!
+
+## Running locally
+
+Running DBT:
+```bash
+cd data_model && dbt build
+```
+
+Running Streamlit:
+```bash
+streamlit run main.py
+```
+
+Investigating with DuckDB:
+```bash
+duckdb data_model/prod.duckdb -ui
+```
