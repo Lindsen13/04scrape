@@ -1,3 +1,5 @@
+NOTE: the cron job is disabled, hence we do not update data anymore.
+
 # 04Scrape
 
 It's not a secret - as a kid I was completely occupied about Runescape! Recently, the [Lost City](https://github.com/2004Scape/Server) project enables geeks like me to experience this feeling again from 2004.
